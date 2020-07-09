@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"outDir": "dist-distributed",
+		"experimentalDecorators": true,
+		"sourceMap": true,
+		"esModuleInterop": true,
+		"lib": [
+			"es5",
+			"es6",
+			"dom"
+		]
+	},
+	"include": [
+		"src"
+	]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "qunity-pixi",
+  "version": "1.0.0",
+  "main": "dist/bundle.umd.js",
+  "module": "dist/bundle.esm.js",
+  "types": "types.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c",
+    "build:prod": "rollup -c --environment BUILD:production",
+    "dts": "dts-bundle-generator src/index.ts -o types.d.ts"
+  },
+  "dependencies": {
+    "dts-bundle-generator": "^5.0.0",
+    "qunity": "https://github.com/qunity-team/qunity"
+  },
+  "devDependencies": {
+    "pixi.js": "^5.2.4",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript": "^1.0.1",
+    "rollup-plugin-uglify": "^6.0.4",
+    "tslib": "^1.11.1",
+    "typescript": "^3.8.3"
+  }
+}
