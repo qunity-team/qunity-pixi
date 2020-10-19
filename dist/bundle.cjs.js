@@ -2,10 +2,12 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var PIXI = _interopDefault(require('pixi.js'));
+var PIXI = require('pixi.js');
 var qunity = require('qunity');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var PIXI__default = /*#__PURE__*/_interopDefaultLegacy(PIXI);
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -79,7 +81,6 @@ function bubbling(node, hit) {
     }
     return interrupt;
 }
-//# sourceMappingURL=utils.js.map
 
 /**
  * Created by rockyl on 2020-03-08.
@@ -127,7 +128,6 @@ var EntityAdaptor = /** @class */ (function (_super) {
     };
     return EntityAdaptor;
 }(qunity.EntityAdaptorBase));
-//# sourceMappingURL=EntityAdaptor.js.map
 
 /**
  * Created by rockyl on 2020-03-08.
@@ -140,18 +140,12 @@ var ResTransform = /** @class */ (function () {
     };
     ResTransform.use = function (resource, next) {
         switch (resource.extension) {
-            case 'scene':
-            case 'prefab':
-                //resource.data = decodeJson5(resource.data);
-                //let parser = new DOMParser();
-                //resource.data = parser.parseFromString(resource.data, 'text/xml');
-                break;
-        }
+                    }
         next();
     };
     return ResTransform;
 }());
-PIXI.Loader.registerPlugin(ResTransform);
+PIXI__default['default'].Loader.registerPlugin(ResTransform);
 var loaderCache = [];
 function loadAsset(config, onComplete) {
     var loader;
@@ -159,7 +153,7 @@ function loadAsset(config, onComplete) {
         loader = loaderCache.pop();
     }
     else {
-        loader = new PIXI.Loader;
+        loader = new PIXI__default['default'].Loader;
     }
     loader.add(config);
     loader.load(onLoaded);
@@ -173,7 +167,6 @@ function loadAsset(config, onComplete) {
         loaderCache.push(loader);
     }
 }
-//# sourceMappingURL=res.js.map
 
 /**
  * Created by rockyl on 2020-03-11.
@@ -195,7 +188,6 @@ function texture(app, key, value) {
     }*/
     return trulyValue;
 }
-//# sourceMappingURL=protocols.js.map
 
 /**
  * Created by rockyl on 2020-03-16.
@@ -217,7 +209,7 @@ var ShapeBase = /** @class */ (function (_super) {
         _this.shapeWidth = 0;
         _this.shapeHeight = 0;
         _this.directionLineWidth = 0;
-        _this._anchor = new PIXI.ObservablePoint(_this._onAnchorUpdate, _this);
+        _this._anchor = new PIXI__default['default'].ObservablePoint(_this._onAnchorUpdate, _this);
         _this.nextTick = function () {
             if (_this.__fieldDirty) {
                 _this.__fieldDirty = false;
@@ -234,7 +226,7 @@ var ShapeBase = /** @class */ (function (_super) {
                 }
             }
         };
-        _this._anchor = new PIXI.ObservablePoint(_this._onAnchorUpdate, _this);
+        _this._anchor = new PIXI__default['default'].ObservablePoint(_this._onAnchorUpdate, _this);
         return _this;
     }
     Object.defineProperty(ShapeBase.prototype, "anchor", {
@@ -304,7 +296,7 @@ var ShapeBase = /** @class */ (function (_super) {
         qunity.dirtyFieldTrigger
     ], ShapeBase.prototype, "directionLineWidth", void 0);
     return ShapeBase;
-}(PIXI.Graphics));
+}(PIXI__default['default'].Graphics));
 /**
  * 矩形
  */
@@ -425,7 +417,6 @@ var StarBezier = /** @class */ (function (_super) {
     ], StarBezier.prototype, "starRotation", void 0);
     return StarBezier;
 }(ShapeBase));
-//# sourceMappingURL=shapes.js.map
 
 /**
  * Created by rockyl on 2020-03-13.
@@ -497,7 +488,7 @@ var PIXI_TextStyle = {
 })(exports.PIXI_BLEND_MODES || (exports.PIXI_BLEND_MODES = {}));
 var entityProps = {
     Node: {
-        def: PIXI.Container,
+        def: PIXI__default['default'].Container,
         isContainer: true,
         props: {
             position: ['vector2', [0, 0]],
@@ -517,7 +508,7 @@ var entityProps = {
     },
     Sprite: {
         base: 'Node',
-        def: PIXI.Sprite,
+        def: PIXI__default['default'].Sprite,
         isContainer: true,
         props: {
             blendMode: ['enum', 'NORMAL', exports.PIXI_BLEND_MODES],
@@ -527,7 +518,7 @@ var entityProps = {
     },
     Text: {
         base: 'Sprite',
-        def: PIXI.Text,
+        def: PIXI__default['default'].Text,
         isContainer: true,
         props: {
             text: ['string'],
@@ -536,7 +527,7 @@ var entityProps = {
     },
     Graphics: {
         base: 'Node',
-        def: PIXI.Graphics,
+        def: PIXI__default['default'].Graphics,
         isContainer: true,
         props: {
             tint: ['color', 0xFFFFFF],
@@ -588,16 +579,15 @@ var entityProps = {
         },
     },
 };
-//# sourceMappingURL=entity-props.js.map
 
 /**
  * Created by rockyl on 2020-03-08.
  */
 var type = "WebGL";
-if (!PIXI.utils.isWebGLSupported()) {
+if (!PIXI__default['default'].utils.isWebGLSupported()) {
     type = "canvas";
 }
-PIXI.utils.sayHello(type);
+PIXI__default['default'].utils.sayHello(type);
 var app;
 (function (Resolution) {
     Resolution[Resolution["WIDTH_FIXED"] = 0] = "WIDTH_FIXED";
@@ -616,7 +606,7 @@ function createApp(options) {
     qunity.injectProp(_options, options);
     app = new qunity.Application();
     app.registerEntityDefs(entityProps);
-    var pixiApp = new PIXI.Application({
+    var pixiApp = new PIXI__default['default'].Application({
         antialias: _options.antialias,
     });
     var view = pixiApp.renderer.view;
@@ -640,7 +630,7 @@ function createApp(options) {
             pixiApp: pixiApp,
         },
     });
-    PIXI.Ticker.shared.add(function (delta) {
+    PIXI__default['default'].Ticker.shared.add(function (delta) {
         mainLoop(delta * 1000 / 60);
     });
     return app;
@@ -685,7 +675,6 @@ function adjustSize(pixiApp, options) {
         pixiApp.renderer.resize(width, height);
     }
 }
-//# sourceMappingURL=wrapper.js.map
 
 exports.Component = Component;
 exports.PIXI_TextStyle = PIXI_TextStyle;

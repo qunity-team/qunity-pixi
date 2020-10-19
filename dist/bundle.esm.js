@@ -73,7 +73,6 @@ function bubbling(node, hit) {
     }
     return interrupt;
 }
-//# sourceMappingURL=utils.js.map
 
 /**
  * Created by rockyl on 2020-03-08.
@@ -121,7 +120,6 @@ var EntityAdaptor = /** @class */ (function (_super) {
     };
     return EntityAdaptor;
 }(EntityAdaptorBase));
-//# sourceMappingURL=EntityAdaptor.js.map
 
 /**
  * Created by rockyl on 2020-03-08.
@@ -134,13 +132,7 @@ var ResTransform = /** @class */ (function () {
     };
     ResTransform.use = function (resource, next) {
         switch (resource.extension) {
-            case 'scene':
-            case 'prefab':
-                //resource.data = decodeJson5(resource.data);
-                //let parser = new DOMParser();
-                //resource.data = parser.parseFromString(resource.data, 'text/xml');
-                break;
-        }
+                    }
         next();
     };
     return ResTransform;
@@ -167,7 +159,6 @@ function loadAsset(config, onComplete) {
         loaderCache.push(loader);
     }
 }
-//# sourceMappingURL=res.js.map
 
 /**
  * Created by rockyl on 2020-03-11.
@@ -189,7 +180,6 @@ function texture(app, key, value) {
     }*/
     return trulyValue;
 }
-//# sourceMappingURL=protocols.js.map
 
 /**
  * Created by rockyl on 2020-03-16.
@@ -419,7 +409,6 @@ var StarBezier = /** @class */ (function (_super) {
     ], StarBezier.prototype, "starRotation", void 0);
     return StarBezier;
 }(ShapeBase));
-//# sourceMappingURL=shapes.js.map
 
 /**
  * Created by rockyl on 2020-03-13.
@@ -583,7 +572,6 @@ var entityProps = {
         },
     },
 };
-//# sourceMappingURL=entity-props.js.map
 
 /**
  * Created by rockyl on 2020-03-08.
@@ -681,7 +669,6 @@ function adjustSize(pixiApp, options) {
         pixiApp.renderer.resize(width, height);
     }
 }
-//# sourceMappingURL=wrapper.js.map
 
 export { Component, PIXI_BLEND_MODES, PIXI_TextStyle, Resolution, bubbling, createApp, createEntity, entityProps, traverse };
 //# sourceMappingURL=bundle.esm.js.map
