@@ -87,6 +87,8 @@ export interface IPixiEntity extends PIXI.Container, IEntity {
 	readonly stageSize: {width: number, height: number};
 }
 
+export type PixiEntity = IPixiEntity | PIXI.Sprite | PIXI.Text | PIXI.Graphics;
+
 export function createEntity(type: string): IPixiEntity {
 	return <IPixiEntity>app.createEntity(type);
 }
