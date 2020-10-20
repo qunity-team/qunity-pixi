@@ -9,14 +9,16 @@
     "dev": "rollup -c -w",
     "build": "rollup -c",
     "build:prod": "rollup -c --environment BUILD:production",
-    "dts": "dts-bundle-generator src/index.ts -o types.d.ts"
+    "dts": "tsc && api-extractor run && rimraf ./dist-distributed"
   },
   "dependencies": {
     "dts-bundle-generator": "^5.0.0",
     "qunity": "https://github.com/qunity-team/qunity"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "^7.10.4",
     "pixi.js": "^5.2.4",
+    "rimraf": "^3.0.2",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-typescript": "^1.0.1",
     "rollup-plugin-uglify": "^6.0.4",
