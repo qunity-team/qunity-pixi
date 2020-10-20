@@ -1,8 +1,7 @@
 import { Application } from 'qunity';
 import { Component as Component_2 } from 'qunity';
 import { IEntity } from 'qunity';
-import PIXI_2 from 'pixi.js';
-import PIXI from "pixi.js";
+import { default as PIXI_2 } from 'pixi.js';
 
 /**
  * 冒泡遍历
@@ -148,13 +147,6 @@ export declare const entityProps: {
     };
 };
 
-export declare interface PixiEntity extends PIXI.Container, PIXI.Sprite, PIXI.Text, PIXI.Graphics, IEntity {
-    readonly stageSize: {
-        width: number;
-        height: number;
-    };
-}
-
 export declare enum PIXI_BLEND_MODES {
     NORMAL = 0,
     ADD = 1,
@@ -226,6 +218,13 @@ declare interface PIXIAppOptions {
     designHeight?: number;
     antialias?: boolean;
     autoResize?: boolean;
+}
+
+export declare interface PixiEntity extends PIXI.Container, PIXI.Sprite, PIXI.Text, PIXI.Graphics, IEntity {
+    readonly stageSize: {
+        width: number;
+        height: number;
+    };
 }
 
 /**
