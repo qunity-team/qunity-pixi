@@ -65,7 +65,7 @@ export function createApp(options?: PIXIAppOptions): Application {
 	let mainLoop = app.setupAdaptor({
 		stage: pixiApp.stage,
 		EntityAdaptor,
-		addDisplayFunc: function (node: IPixiEntity, parent: IPixiEntity) {
+		addDisplayFunc: function (node: PixiEntity, parent: PixiEntity) {
 			parent['addChild'](node);
 		},
 		traverseFunc: traverse,
@@ -83,17 +83,17 @@ export function createApp(options?: PIXIAppOptions): Application {
 	return app;
 }
 
-export interface IPixiEntity extends PIXI.Container, PIXI.Sprite, PIXI.Text, PIXI.Graphics, IEntity {
+export interface PixiEntity extends PIXI.Container, PIXI.Sprite, PIXI.Text, PIXI.Graphics, IEntity {
 	readonly stageSize: { width: number, height: number };
 }
 
-export function createEntity(type: string): IPixiEntity {
-	return <IPixiEntity>app.createEntity(type);
+export function createEntity(type: string): PixiEntity {
+	return <PixiEntity>app.createEntity(type);
 }
 
 export class Component extends QComponent {
-	get entity(): IPixiEntity {
-		return this.entityAdaptor ? <IPixiEntity>this.entityAdaptor.entity : null;
+	get entity(): PixiEntity {
+		return this.entityAdaptor ? <PixiEntity>this.entityAdaptor.entity : null;
 	}
 }
 

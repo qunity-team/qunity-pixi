@@ -19,12 +19,12 @@ declare class Circle extends ShapeBase {
 }
 
 export declare class Component extends Component_2 {
-    get entity(): IPixiEntity;
+    get entity(): PixiEntity;
 }
 
 export declare function createApp(options?: PIXIAppOptions): Application;
 
-export declare function createEntity(type: string): IPixiEntity;
+export declare function createEntity(type: string): PixiEntity;
 
 export declare const entityProps: {
     Node: {
@@ -148,7 +148,7 @@ export declare const entityProps: {
     };
 };
 
-export declare interface IPixiEntity extends PIXI.Container, PIXI.Sprite, PIXI.Text, PIXI.Graphics, IEntity {
+export declare interface PixiEntity extends PIXI.Container, PIXI.Sprite, PIXI.Text, PIXI.Graphics, IEntity {
     readonly stageSize: {
         width: number;
         height: number;
