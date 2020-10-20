@@ -1,0 +1,1231 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.10.4",
+    "schemaVersion": 1003,
+    "oldestForwardsCompatibleVersion": 1001
+  },
+  "kind": "Package",
+  "canonicalReference": "qunity-pixi!",
+  "docComment": "",
+  "name": "qunity-pixi",
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "qunity-pixi!",
+      "name": "",
+      "members": [
+        {
+          "kind": "Function",
+          "canonicalReference": "qunity-pixi!bubbling:function(1)",
+          "docComment": "/**\n * 冒泡遍历\n *\n * @param node - \n *\n * @param hit - \n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function bubbling(node: "
+            },
+            {
+              "kind": "Content",
+              "text": "any"
+            },
+            {
+              "kind": "Content",
+              "text": ", hit: "
+            },
+            {
+              "kind": "Content",
+              "text": "(node: "
+            },
+            {
+              "kind": "Reference",
+              "text": "PIXI.DisplayObject",
+              "canonicalReference": "!PIXI.DisplayObject:class"
+            },
+            {
+              "kind": "Content",
+              "text": ") => boolean | void"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "boolean | void"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "node",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "parameterName": "hit",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 6
+              }
+            }
+          ],
+          "name": "bubbling"
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "qunity-pixi!Component:class",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class Component extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "QComponent",
+              "canonicalReference": "qunity!Component:class"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "Component",
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "qunity-pixi!Component#entity:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get entity(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "PixiEntity",
+                  "canonicalReference": "qunity-pixi!PixiEntity:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "entity",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          },
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "qunity-pixi!createApp:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function createApp(options?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "PIXIAppOptions",
+              "canonicalReference": "qunity-pixi!~PIXIAppOptions:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Application",
+              "canonicalReference": "qunity!Application:class"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "name": "createApp"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "qunity-pixi!createEntity:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function createEntity(type: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "PixiEntity",
+              "canonicalReference": "qunity-pixi!PixiEntity:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "type",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "name": "createEntity"
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "qunity-pixi!entityProps:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "entityProps: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    Node: {\n        def: typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "PIXI.Container",
+              "canonicalReference": "!PIXI.Container:class"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n        isContainer: boolean;\n        props: {\n            position: (string | number[])[];\n            scale: (string | number[])[];\n            anchor: (string | number[])[];\n            pivot: (string | number[])[];\n            skew: (string | number[])[];\n            width: (string | number)[];\n            height: (string | number)[];\n            alpha: (string | number)[];\n            angle: (string | number)[];\n            buttonMode: (string | boolean)[];\n            interactive: (string | boolean)[];\n            interactiveChildren: (string | boolean)[];\n            zIndex: (string | number)[];\n        };\n    };\n    Sprite: {\n        base: string;\n        def: typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "PIXI.Sprite",
+              "canonicalReference": "!PIXI.Sprite:class"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n        isContainer: boolean;\n        props: {\n            blendMode: (string | typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "PIXI_BLEND_MODES",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES:enum"
+            },
+            {
+              "kind": "Content",
+              "text": ")[];\n            tint: (string | number)[];\n            texture: string[];\n        };\n    };\n    Text: {\n        base: string;\n        def: typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "PIXI.Text",
+              "canonicalReference": "!PIXI.Text:class"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n        isContainer: boolean;\n        props: {\n            text: string[];\n            style: (string | {\n                align: string[];\n                breakWords: string[];\n                dropShadow: string[];\n                dropShadowAlpha: string[];\n                dropShadowAngle: string[];\n                dropShadowBlur: string[];\n                dropShadowColor: string[];\n                dropShadowDistance: string[];\n                fill: string[];\n                fontFamily: string[];\n                fontSize: string[];\n                fontStyle: string[];\n                fontVariant: string[];\n                fontWeight: string[];\n                leading: string[];\n                letterSpacing: string[];\n                lineHeight: string[];\n                lineJoin: string[];\n                miterLimit: string[];\n                padding: string[];\n                stroke: string[];\n                strokeThickness: string[];\n                trim: string[];\n                textBaseline: string[];\n                whiteSpace: string[];\n                wordWrap: string[];\n                wordWrapWidth: string[];\n            })[];\n        };\n    };\n    Graphics: {\n        base: string;\n        def: typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "PIXI.Graphics",
+              "canonicalReference": "!PIXI.Graphics:class"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n        isContainer: boolean;\n        props: {\n            tint: (string | number)[];\n        };\n    };\n    ShapeBase: {\n        base: string;\n        def: typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "ShapeBase",
+              "canonicalReference": "qunity-pixi!ShapeBase:class"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n        isContainer: boolean;\n        hidden: boolean;\n        props: {\n            fillColor: (string | number)[];\n            strokeColor: (string | number)[];\n            strokeWidth: (string | number)[];\n        };\n    };\n    Rect: {\n        base: string;\n        def: typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "Rect",
+              "canonicalReference": "qunity-pixi!Rect:class"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n        isContainer: boolean;\n        props: {\n            borderRadius: (string | number)[];\n        };\n    };\n    Circle: {\n        base: string;\n        def: typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "Circle",
+              "canonicalReference": "qunity-pixi!Circle:class"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n        isContainer: boolean;\n        props: {};\n    };\n    Star: {\n        base: string;\n        def: typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "Star",
+              "canonicalReference": "qunity-pixi!Star:class"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n        isContainer: boolean;\n        props: {\n            points: (string | number)[];\n            innerRadius: string[];\n            starRotation: (string | number)[];\n        };\n    };\n    StarBezier: {\n        base: string;\n        def: typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "StarBezier",
+              "canonicalReference": "qunity-pixi!StarBezier:class"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n        isContainer: boolean;\n        props: {\n            points: (string | number)[];\n            innerRadius: string[];\n            starRotation: (string | number)[];\n        };\n    };\n}"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "entityProps",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 22
+          }
+        },
+        {
+          "kind": "Enum",
+          "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES:enum",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare enum PIXI_BLEND_MODES "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "PIXI_BLEND_MODES",
+          "members": [
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.ADD:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ADD = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "1"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "ADD",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.ADD_NPM:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ADD_NPM = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "18"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "ADD_NPM",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.COLOR:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "COLOR = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "15"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "COLOR",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.COLOR_BURN:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "COLOR_BURN = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "8"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "COLOR_BURN",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.COLOR_DODGE:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "COLOR_DODGE = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "7"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "COLOR_DODGE",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.DARKEN:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "DARKEN = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "5"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "DARKEN",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.DIFFERENCE:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "DIFFERENCE = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "11"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "DIFFERENCE",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.DST_ATOP:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "DST_ATOP = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "27"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "DST_ATOP",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.DST_IN:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "DST_IN = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "25"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "DST_IN",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.DST_OUT:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "DST_OUT = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "26"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "DST_OUT",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.DST_OVER:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "DST_OVER = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "24"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "DST_OVER",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.ERASE:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ERASE = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "26"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "ERASE",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.EXCLUSION:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "EXCLUSION = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "12"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "EXCLUSION",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.HARD_LIGHT:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "HARD_LIGHT = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "9"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "HARD_LIGHT",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.HUE:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "HUE = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "13"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "HUE",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.LIGHTEN:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "LIGHTEN = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "6"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "LIGHTEN",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.LUMINOSITY:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "LUMINOSITY = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "16"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "LUMINOSITY",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.MULTIPLY:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "MULTIPLY = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "2"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "MULTIPLY",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.NONE:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "NONE = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "20"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "NONE",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.NORMAL:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "NORMAL = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "0"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "NORMAL",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.NORMAL_NPM:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "NORMAL_NPM = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "17"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "NORMAL_NPM",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.OVERLAY:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "OVERLAY = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "4"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "OVERLAY",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.SATURATION:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "SATURATION = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "14"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "SATURATION",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.SCREEN:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "SCREEN = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "3"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "SCREEN",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.SCREEN_NPM:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "SCREEN_NPM = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "19"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "SCREEN_NPM",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.SOFT_LIGHT:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "SOFT_LIGHT = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "10"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "SOFT_LIGHT",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.SRC_ATOP:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "SRC_ATOP = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "23"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "SRC_ATOP",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.SRC_IN:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "SRC_IN = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "21"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "SRC_IN",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.SRC_OUT:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "SRC_OUT = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "22"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "SRC_OUT",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.SRC_OVER:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "SRC_OVER = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "0"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "SRC_OVER",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.SUBTRACT:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "SUBTRACT = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "28"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "SUBTRACT",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!PIXI_BLEND_MODES.XOR:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "XOR = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "29"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "XOR",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ]
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "qunity-pixi!PIXI_TextStyle:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "PIXI_TextStyle: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    align: string[];\n    breakWords: string[];\n    dropShadow: string[];\n    dropShadowAlpha: string[];\n    dropShadowAngle: string[];\n    dropShadowBlur: string[];\n    dropShadowColor: string[];\n    dropShadowDistance: string[];\n    fill: string[];\n    fontFamily: string[];\n    fontSize: string[];\n    fontStyle: string[];\n    fontVariant: string[];\n    fontWeight: string[];\n    leading: string[];\n    letterSpacing: string[];\n    lineHeight: string[];\n    lineJoin: string[];\n    miterLimit: string[];\n    padding: string[];\n    stroke: string[];\n    strokeThickness: string[];\n    trim: string[];\n    textBaseline: string[];\n    whiteSpace: string[];\n    wordWrap: string[];\n    wordWrapWidth: string[];\n}"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "PIXI_TextStyle",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "qunity-pixi!PixiEntity:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface PixiEntity extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "IEntity",
+              "canonicalReference": "qunity!IEntity:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "PixiEntity",
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "qunity-pixi!PixiEntity#stageSize:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly stageSize: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        width: number;\n        height: number;\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "stageSize",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 3
+            }
+          ]
+        },
+        {
+          "kind": "Enum",
+          "canonicalReference": "qunity-pixi!Resolution:enum",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare enum Resolution "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "Resolution",
+          "members": [
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!Resolution.HEIGHT_FIXED:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "HEIGHT_FIXED = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "1"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "HEIGHT_FIXED",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "qunity-pixi!Resolution.WIDTH_FIXED:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "WIDTH_FIXED = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "0"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "WIDTH_FIXED",
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ]
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "qunity-pixi!traverse:function(1)",
+          "docComment": "/**\n * 先序遍历\n *\n * @param node - \n *\n * @param hit - \n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function traverse(node: "
+            },
+            {
+              "kind": "Content",
+              "text": "any"
+            },
+            {
+              "kind": "Content",
+              "text": ", hit: "
+            },
+            {
+              "kind": "Content",
+              "text": "(node: "
+            },
+            {
+              "kind": "Reference",
+              "text": "PIXI.DisplayObject",
+              "canonicalReference": "!PIXI.DisplayObject:class"
+            },
+            {
+              "kind": "Content",
+              "text": ") => boolean | void"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "boolean | void"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "node",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "parameterName": "hit",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 6
+              }
+            }
+          ],
+          "name": "traverse"
+        }
+      ]
+    }
+  ]
+}
