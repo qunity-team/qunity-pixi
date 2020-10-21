@@ -20,7 +20,7 @@ exports.doc = Doc({type: 'scene', name: 'main'}).kv({
 						anchor: {x: 0.5}
 					}),
 				]).s([
-					{script: '/scripts/Hello', text: 'entity://text-hello', sprite: 'entity://sprite-logo'},
+					{script: '/scripts/Hello', label: 'entity://text-hello', sprite: 'entity://sprite-logo', text: 'Hello Qunity'},
 				]),
 				pixi.Node({name: 'Background', }).s([
 					{script: '/scripts/Background', starTexture: 'texture://69410bc3-8df2-49a3-9959-f86e56d2aaf5'},
