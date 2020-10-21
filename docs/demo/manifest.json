@@ -1,0 +1,22 @@
+{
+	"name": "project-sample",
+	"engineConfig": {
+		"fps": 60,
+		"designWidth": 750,
+		"designHeight": 1334,
+		"scaleMode": "fixedWidth",
+		"resPath": ""
+	},
+	"engine": "pixi",
+	"scene": {
+		"scenes": {
+			"main": "assets/scenes/main.qnt"
+		},
+		"entryScene": "main"
+	},
+	"customConfig": {
+	},
+	"externals": {
+	},
+	"projectUuid": "1ea735b4-a8cc-49e8-b2f6-24d9d29468ab"
+}
