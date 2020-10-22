@@ -14,7 +14,7 @@ const options = {
 	input: 'src/index.ts',
 	output: [
 		{
-			file: prod ? 'dist/bundle.umd.cjs.js' : 'dist/bundle.cjs.js',
+			file: prod ? 'dist/index.umd.cjs.js' : 'dist/index.cjs.js',
 			sourcemap: true,
 			format: 'cjs',
 			globals: {
@@ -23,7 +23,7 @@ const options = {
 			},
 		},
 		{
-			file: prod ? 'dist/bundle.umd.esm.js' : 'dist/bundle.esm.js',
+			file: prod ? 'dist/index.umd.esm.js' : 'dist/index.esm.js',
 			sourcemap: true,
 			format: 'esm',
 			globals: {
@@ -32,7 +32,7 @@ const options = {
 			},
 		},
 		{
-			file: prod ? 'dist/bundle.umd.min.js' : 'dist/bundle.umd.js',
+			file: prod ? 'dist/index.umd.min.js' : 'dist/index.umd.js',
 			sourcemap: !prod,
 			format: 'umd',
 			name,

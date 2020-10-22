@@ -1,13 +1,5 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var PIXI = require('pixi.js');
-var qunity = require('qunity');
-
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-var PIXI__default = /*#__PURE__*/_interopDefaultLegacy(PIXI);
+import PIXI from 'pixi.js';
+import { EntityAdaptorBase, dirtyFieldTrigger, injectProp, Application, Component as Component$1 } from 'qunity';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -127,7 +119,7 @@ var EntityAdaptor = /** @class */ (function (_super) {
         }
     };
     return EntityAdaptor;
-}(qunity.EntityAdaptorBase));
+}(EntityAdaptorBase));
 
 /**
  * Created by rockyl on 2020-03-08.
@@ -145,7 +137,7 @@ var ResTransform = /** @class */ (function () {
     };
     return ResTransform;
 }());
-PIXI__default['default'].Loader.registerPlugin(ResTransform);
+PIXI.Loader.registerPlugin(ResTransform);
 var loaderCache = [];
 function loadAsset(config, onComplete) {
     var loader;
@@ -153,7 +145,7 @@ function loadAsset(config, onComplete) {
         loader = loaderCache.pop();
     }
     else {
-        loader = new PIXI__default['default'].Loader;
+        loader = new PIXI.Loader;
     }
     loader.add(config);
     loader.load(onLoaded);
@@ -209,7 +201,7 @@ var ShapeBase = /** @class */ (function (_super) {
         _this.shapeWidth = 0;
         _this.shapeHeight = 0;
         _this.directionLineWidth = 0;
-        _this._anchor = new PIXI__default['default'].ObservablePoint(_this._onAnchorUpdate, _this);
+        _this._anchor = new PIXI.ObservablePoint(_this._onAnchorUpdate, _this);
         _this.nextTick = function () {
             if (_this.__fieldDirty) {
                 _this.__fieldDirty = false;
@@ -226,7 +218,7 @@ var ShapeBase = /** @class */ (function (_super) {
                 }
             }
         };
-        _this._anchor = new PIXI__default['default'].ObservablePoint(_this._onAnchorUpdate, _this);
+        _this._anchor = new PIXI.ObservablePoint(_this._onAnchorUpdate, _this);
         return _this;
     }
     Object.defineProperty(ShapeBase.prototype, "anchor", {
@@ -269,34 +261,34 @@ var ShapeBase = /** @class */ (function (_super) {
         this.lineTo(x + this.shapeWidth / 2, y);
     };
     __decorate([
-        qunity.dirtyFieldTrigger
+        dirtyFieldTrigger
     ], ShapeBase.prototype, "fillColor", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        dirtyFieldTrigger
     ], ShapeBase.prototype, "fillAlpha", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        dirtyFieldTrigger
     ], ShapeBase.prototype, "strokeColor", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        dirtyFieldTrigger
     ], ShapeBase.prototype, "strokeAlpha", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        dirtyFieldTrigger
     ], ShapeBase.prototype, "strokeWidth", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        dirtyFieldTrigger
     ], ShapeBase.prototype, "strokeAlignment", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        dirtyFieldTrigger
     ], ShapeBase.prototype, "shapeWidth", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        dirtyFieldTrigger
     ], ShapeBase.prototype, "shapeHeight", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        dirtyFieldTrigger
     ], ShapeBase.prototype, "directionLineWidth", void 0);
     return ShapeBase;
-}(PIXI__default['default'].Graphics));
+}(PIXI.Graphics));
 /**
  * 矩形
  */
@@ -317,7 +309,7 @@ var Rect = /** @class */ (function (_super) {
         }
     };
     __decorate([
-        qunity.dirtyFieldTrigger
+        dirtyFieldTrigger
     ], Rect.prototype, "borderRadius", void 0);
     return Rect;
 }(ShapeBase));
@@ -361,13 +353,13 @@ var Star = /** @class */ (function (_super) {
         this.drawStar.apply(this, args);
     };
     __decorate([
-        qunity.dirtyFieldTrigger
+        dirtyFieldTrigger
     ], Star.prototype, "points", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        dirtyFieldTrigger
     ], Star.prototype, "innerRadius", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        dirtyFieldTrigger
     ], Star.prototype, "starRotation", void 0);
     return Star;
 }(ShapeBase));
@@ -407,13 +399,13 @@ var StarBezier = /** @class */ (function (_super) {
         this.closePath();
     };
     __decorate([
-        qunity.dirtyFieldTrigger
+        dirtyFieldTrigger
     ], StarBezier.prototype, "points", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        dirtyFieldTrigger
     ], StarBezier.prototype, "innerRadius", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        dirtyFieldTrigger
     ], StarBezier.prototype, "starRotation", void 0);
     return StarBezier;
 }(ShapeBase));
@@ -452,6 +444,7 @@ var PIXI_TextStyle = {
     wordWrap: ['boolean', ''],
     wordWrapWidth: ['number', ''],
 };
+var PIXI_BLEND_MODES;
 (function (PIXI_BLEND_MODES) {
     PIXI_BLEND_MODES[PIXI_BLEND_MODES["NORMAL"] = 0] = "NORMAL";
     PIXI_BLEND_MODES[PIXI_BLEND_MODES["ADD"] = 1] = "ADD";
@@ -485,10 +478,10 @@ var PIXI_TextStyle = {
     PIXI_BLEND_MODES[PIXI_BLEND_MODES["ERASE"] = 26] = "ERASE";
     PIXI_BLEND_MODES[PIXI_BLEND_MODES["SUBTRACT"] = 28] = "SUBTRACT";
     PIXI_BLEND_MODES[PIXI_BLEND_MODES["XOR"] = 29] = "XOR";
-})(exports.PIXI_BLEND_MODES || (exports.PIXI_BLEND_MODES = {}));
+})(PIXI_BLEND_MODES || (PIXI_BLEND_MODES = {}));
 var entityProps = {
     Node: {
-        def: PIXI__default['default'].Container,
+        def: PIXI.Container,
         isContainer: true,
         props: {
             position: ['vector2', [0, 0]],
@@ -508,17 +501,17 @@ var entityProps = {
     },
     Sprite: {
         base: 'Node',
-        def: PIXI__default['default'].Sprite,
+        def: PIXI.Sprite,
         isContainer: true,
         props: {
-            blendMode: ['enum', 'NORMAL', exports.PIXI_BLEND_MODES],
+            blendMode: ['enum', 'NORMAL', PIXI_BLEND_MODES],
             tint: ['color', 0xFFFFFF],
             texture: ['texture'],
         },
     },
     Text: {
         base: 'Sprite',
-        def: PIXI__default['default'].Text,
+        def: PIXI.Text,
         isContainer: true,
         props: {
             text: ['string'],
@@ -527,7 +520,7 @@ var entityProps = {
     },
     Graphics: {
         base: 'Node',
-        def: PIXI__default['default'].Graphics,
+        def: PIXI.Graphics,
         isContainer: true,
         props: {
             tint: ['color', 0xFFFFFF],
@@ -584,17 +577,18 @@ var entityProps = {
  * Created by rockyl on 2020-03-08.
  */
 var type = "WebGL";
-if (!PIXI__default['default'].utils.isWebGLSupported()) {
+if (!PIXI.utils.isWebGLSupported()) {
     type = "canvas";
 }
-PIXI__default['default'].utils.sayHello(type);
+PIXI.utils.sayHello(type);
 var app;
+var Resolution;
 (function (Resolution) {
     Resolution[Resolution["WIDTH_FIXED"] = 0] = "WIDTH_FIXED";
     Resolution[Resolution["HEIGHT_FIXED"] = 1] = "HEIGHT_FIXED";
-})(exports.Resolution || (exports.Resolution = {}));
+})(Resolution || (Resolution = {}));
 var defaultOptions = {
-    resolution: exports.Resolution.WIDTH_FIXED,
+    resolution: Resolution.WIDTH_FIXED,
     designWidth: 750,
     designHeight: 1334,
     antialias: true,
@@ -602,11 +596,11 @@ var defaultOptions = {
 };
 function createApp(options) {
     var _options = {};
-    qunity.injectProp(_options, defaultOptions);
-    qunity.injectProp(_options, options);
-    app = new qunity.Application();
+    injectProp(_options, defaultOptions);
+    injectProp(_options, options);
+    app = new Application();
     app.registerEntityDefs(entityProps);
-    var pixiApp = new PIXI__default['default'].Application({
+    var pixiApp = new PIXI.Application({
         antialias: _options.antialias,
     });
     var view = pixiApp.renderer.view;
@@ -630,7 +624,7 @@ function createApp(options) {
             pixiApp: pixiApp,
         },
     });
-    PIXI__default['default'].Ticker.shared.add(function (delta) {
+    PIXI.Ticker.shared.add(function (delta) {
         mainLoop(delta * 1000 / 60);
     });
     return app;
@@ -651,7 +645,7 @@ var Component = /** @class */ (function (_super) {
         configurable: true
     });
     return Component;
-}(qunity.Component));
+}(Component$1));
 function adjustSize(pixiApp, options) {
     if (options.autoResize) {
         window.onresize = resize;
@@ -663,11 +657,11 @@ function adjustSize(pixiApp, options) {
         var height = designHeight;
         var scale;
         switch (options.resolution) {
-            case exports.Resolution.WIDTH_FIXED:
+            case Resolution.WIDTH_FIXED:
                 scale = window.innerWidth / width;
                 height = window.innerHeight / scale;
                 break;
-            case exports.Resolution.HEIGHT_FIXED:
+            case Resolution.HEIGHT_FIXED:
                 scale = window.innerHeight / height;
                 width = window.innerWidth / scale;
                 break;
@@ -676,11 +670,5 @@ function adjustSize(pixiApp, options) {
     }
 }
 
-exports.Component = Component;
-exports.PIXI_TextStyle = PIXI_TextStyle;
-exports.bubbling = bubbling;
-exports.createApp = createApp;
-exports.createEntity = createEntity;
-exports.entityProps = entityProps;
-exports.traverse = traverse;
-//# sourceMappingURL=bundle.cjs.js.map
+export { Component, PIXI_BLEND_MODES, PIXI_TextStyle, Resolution, bubbling, createApp, createEntity, entityProps, traverse };
+//# sourceMappingURL=index.esm.js.map

@@ -1,28 +1,29 @@
 {
-  "name": "qunity-pixi",
-  "version": "1.0.0",
-  "main": "dist/bundle.umd.js",
-  "module": "dist/bundle.esm.js",
-  "types": "types.d.ts",
-  "license": "MIT",
-  "scripts": {
-    "dev": "rollup -c -w",
-    "build": "rollup -c",
-    "build:prod": "rollup -c --environment BUILD:production",
-    "dts": "tsc && api-extractor run && rimraf ./dist-distributed"
-  },
-  "dependencies": {
-    "dts-bundle-generator": "^5.0.0",
-    "qunity": "https://github.com/qunity-team/qunity"
-  },
-  "devDependencies": {
-    "@microsoft/api-extractor": "^7.10.4",
-    "pixi.js": "^5.2.4",
-    "rimraf": "^3.0.2",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-typescript": "^1.0.1",
-    "rollup-plugin-uglify": "^6.0.4",
-    "tslib": "^1.11.1",
-    "typescript": "^3.8.3"
-  }
+	"name": "qunity-pixi",
+	"version": "1.0.3",
+	"main": "dist/bundle.umd.js",
+	"module": "dist/bundle.esm.js",
+	"types": "types.d.ts",
+	"license": "MIT",
+	"scripts": {
+		"dev": "rollup -c -w",
+		"build": "rollup -c",
+		"build:prod": "rollup -c --environment BUILD:production",
+		"dts": "tsc && api-extractor run && rimraf ./dist-distributed",
+		"prepublish": "npm run build"
+	},
+	"dependencies": {
+		"qunity": "^1.0.3"
+	},
+	"devDependencies": {
+		"@microsoft/api-extractor": "^7.10.4",
+		"pixi.js": "^5.2.4",
+		"rimraf": "^3.0.2",
+		"rollup": "^2.32.1",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-typescript": "^1.0.1",
+		"rollup-plugin-uglify": "^6.0.4",
+		"tslib": "^1.11.1",
+		"typescript": "^3.8.3"
+	}
 }

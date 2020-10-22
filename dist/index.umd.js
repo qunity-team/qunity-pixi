@@ -686,4 +686,4 @@
     Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
-//# sourceMappingURL=bundle.umd.js.map
+//# sourceMappingURL=index.umd.js.map
