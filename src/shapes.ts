@@ -132,7 +132,7 @@ export class Circle extends ShapeBase {
 		const {shapeWidth, shapeHeight, anchorOffset: {x, y}} = this;
 		const radius = Math.min(shapeWidth, shapeHeight) / 2;
 
-		this.drawCircle(radius - x, radius - y, radius);
+		this.drawCircle(radius + x, radius + y, radius);
 	}
 }
 
@@ -153,7 +153,7 @@ export class Star extends ShapeBase {
 		const radius = Math.min(shapeWidth, shapeHeight) / 2;
 		const {points, innerRadius, starRotation} = this;
 
-		let args = [radius - x, radius - y, points, radius];
+		let args = [radius + x, radius + y, points, radius];
 		if (innerRadius !== undefined) {
 			args.push(innerRadius)
 		} else if (starRotation !== undefined) {

@@ -331,7 +331,7 @@
         Circle.prototype.redraw = function () {
             var _a = this, shapeWidth = _a.shapeWidth, shapeHeight = _a.shapeHeight, _b = _a.anchorOffset, x = _b.x, y = _b.y;
             var radius = Math.min(shapeWidth, shapeHeight) / 2;
-            this.drawCircle(radius - x, radius - y, radius);
+            this.drawCircle(radius + x, radius + y, radius);
         };
         return Circle;
     }(ShapeBase));
@@ -350,7 +350,7 @@
             var _a = this, shapeWidth = _a.shapeWidth, shapeHeight = _a.shapeHeight, _b = _a.anchorOffset, x = _b.x, y = _b.y;
             var radius = Math.min(shapeWidth, shapeHeight) / 2;
             var _c = this, points = _c.points, innerRadius = _c.innerRadius, starRotation = _c.starRotation;
-            var args = [radius - x, radius - y, points, radius];
+            var args = [radius + x, radius + y, points, radius];
             if (innerRadius !== undefined) {
                 args.push(innerRadius);
             }
