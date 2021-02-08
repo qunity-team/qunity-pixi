@@ -121,8 +121,6 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-/api-extractor.json
-/temp/
 /docs/
-/tsdoc-metadata.json
 /rollup.config.js
+*.iml

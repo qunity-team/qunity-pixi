@@ -83,6 +83,7 @@ export function createApp(options?: PIXIAppOptions): Application {
 	return app;
 }
 
+// @ts-ignore
 export interface PixiEntity extends PIXI.Container, PIXI.Sprite, PIXI.Text, PIXI.Graphics, IEntity {
 	readonly stageSize: { width: number, height: number };
 }

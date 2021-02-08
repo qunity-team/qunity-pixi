@@ -254,7 +254,6 @@ var ShapeBase = /** @class */ (function (_super) {
         this.$onModify();
     };
     ShapeBase.prototype.$onModify = function (value, key) {
-        this.__fieldDirty = true;
         /*if (this._t) {
             clearTimeout(this._t);
             this._t = null;
@@ -269,31 +268,31 @@ var ShapeBase = /** @class */ (function (_super) {
         this.lineTo(x + this.shapeWidth / 2, y);
     };
     __decorate([
-        qunity.dirtyFieldTrigger
+        qunity.watch
     ], ShapeBase.prototype, "fillColor", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        qunity.watch
     ], ShapeBase.prototype, "fillAlpha", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        qunity.watch
     ], ShapeBase.prototype, "strokeColor", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        qunity.watch
     ], ShapeBase.prototype, "strokeAlpha", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        qunity.watch
     ], ShapeBase.prototype, "strokeWidth", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        qunity.watch
     ], ShapeBase.prototype, "strokeAlignment", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        qunity.watch
     ], ShapeBase.prototype, "shapeWidth", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        qunity.watch
     ], ShapeBase.prototype, "shapeHeight", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        qunity.watch
     ], ShapeBase.prototype, "directionLineWidth", void 0);
     return ShapeBase;
 }(PIXI__default['default'].Graphics));
@@ -317,7 +316,7 @@ var Rect = /** @class */ (function (_super) {
         }
     };
     __decorate([
-        qunity.dirtyFieldTrigger
+        qunity.watch
     ], Rect.prototype, "borderRadius", void 0);
     return Rect;
 }(ShapeBase));
@@ -361,13 +360,13 @@ var Star = /** @class */ (function (_super) {
         this.drawStar.apply(this, args);
     };
     __decorate([
-        qunity.dirtyFieldTrigger
+        qunity.watch
     ], Star.prototype, "points", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        qunity.watch
     ], Star.prototype, "innerRadius", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        qunity.watch
     ], Star.prototype, "starRotation", void 0);
     return Star;
 }(ShapeBase));
@@ -407,13 +406,13 @@ var StarBezier = /** @class */ (function (_super) {
         this.closePath();
     };
     __decorate([
-        qunity.dirtyFieldTrigger
+        qunity.watch
     ], StarBezier.prototype, "points", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        qunity.watch
     ], StarBezier.prototype, "innerRadius", void 0);
     __decorate([
-        qunity.dirtyFieldTrigger
+        qunity.watch
     ], StarBezier.prototype, "starRotation", void 0);
     return StarBezier;
 }(ShapeBase));

@@ -2,7 +2,7 @@
  * Created by rockyl on 2020-03-16.
  */
 
-import {dirtyFieldTrigger} from "qunity";
+import {watch} from "qunity";
 import PIXI from 'pixi.js'
 
 /**
@@ -13,23 +13,23 @@ export abstract class ShapeBase extends PIXI.Graphics {
 
 	private _t;
 
-	@dirtyFieldTrigger
+	@watch
 	fillColor: any = '0xffffff';
-	@dirtyFieldTrigger
+	@watch
 	fillAlpha: number = 1;
-	@dirtyFieldTrigger
+	@watch
 	strokeColor: any = 0;
-	@dirtyFieldTrigger
+	@watch
 	strokeAlpha: number = 1;
-	@dirtyFieldTrigger
+	@watch
 	strokeWidth: number = 0;
-	@dirtyFieldTrigger
+	@watch
 	strokeAlignment: number = 0.5;
-	@dirtyFieldTrigger
+	@watch
 	shapeWidth: number = 0;
-	@dirtyFieldTrigger
+	@watch
 	shapeHeight: number = 0;
-	@dirtyFieldTrigger
+	@watch
 	directionLineWidth: number = 0;
 
 	protected _anchor: PIXI.ObservablePoint = new PIXI.ObservablePoint(this._onAnchorUpdate, this);
@@ -63,8 +63,6 @@ export abstract class ShapeBase extends PIXI.Graphics {
 	}
 
 	private $onModify(value?, key?) {
-		this.__fieldDirty = true;
-
 		/*if (this._t) {
 			clearTimeout(this._t);
 			this._t = null;
@@ -109,7 +107,7 @@ export abstract class ShapeBase extends PIXI.Graphics {
  * 矩形
  */
 export class Rect extends ShapeBase {
-	@dirtyFieldTrigger
+	@watch
 	borderRadius: number = 0;
 
 	protected redraw() {
@@ -140,11 +138,11 @@ export class Circle extends ShapeBase {
  * 星型
  */
 export class Star extends ShapeBase {
-	@dirtyFieldTrigger
+	@watch
 	points: number = 5;
-	@dirtyFieldTrigger
+	@watch
 	innerRadius: number;
-	@dirtyFieldTrigger
+	@watch
 	starRotation: number = 0;
 
 	protected redraw() {
@@ -168,11 +166,11 @@ export class Star extends ShapeBase {
  * 曲线星型
  */
 export class StarBezier extends ShapeBase {
-	@dirtyFieldTrigger
+	@watch
 	points: number = 5;
-	@dirtyFieldTrigger
+	@watch
 	innerRadius: number;
-	@dirtyFieldTrigger
+	@watch
 	starRotation: number = 0;
 
 	protected redraw() {
@@ -181,7 +179,7 @@ export class StarBezier extends ShapeBase {
 		const radius = Math.min(shapeWidth, shapeHeight) / 2;
 		let {points, innerRadius, starRotation} = this;
 
-		if(innerRadius === undefined){
+		if (innerRadius === undefined) {
 			innerRadius = radius / 2;
 		}
 

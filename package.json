@@ -1,16 +1,16 @@
 {
 	"name": "qunity-pixi",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"main": "dist/bundle.umd.js",
 	"module": "dist/bundle.esm.js",
-	"types": "types.d.ts",
+	"types": "types/index.d.ts",
 	"license": "MIT",
 	"scripts": {
 		"dev": "rollup -c -w",
 		"build": "rollup -c",
 		"build:prod": "rollup -c --environment BUILD:production",
-		"dts": "tsc && api-extractor run && rimraf ./dist-distributed",
-		"prepublish": "npm run build"
+		"declare": "tsc -d --declarationDir 'types' --emitDeclarationOnly",
+		"prepublish": "npm run declare && npm run build"
 	},
 	"dependencies": {
 		"qunity": "^1.0.3"
