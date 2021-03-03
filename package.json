@@ -1,6 +1,6 @@
 {
 	"name": "qunity-pixi",
-	"version": "1.0.4",
+	"version": "1.1.0",
 	"main": "dist/bundle.umd.js",
 	"module": "dist/bundle.esm.js",
 	"types": "types/index.d.ts",
@@ -13,10 +13,9 @@
 		"prepublish": "npm run declare && npm run build"
 	},
 	"dependencies": {
-		"qunity": "^1.0.3"
+		"qunity": "^1.1.0"
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "^7.10.4",
 		"pixi.js": "^5.2.4",
 		"rimraf": "^3.0.2",
 		"rollup": "^2.32.1",

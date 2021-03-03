@@ -10,18 +10,18 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
 var PIXI__default = /*#__PURE__*/_interopDefaultLegacy(PIXI);
 
 /*! *****************************************************************************
-Copyright (c) Microsoft Corporation. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-this file except in compliance with the License. You may obtain a copy of the
-License at http://www.apache.org/licenses/LICENSE-2.0
+Copyright (c) Microsoft Corporation.
 
-THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-MERCHANTABLITY OR NON-INFRINGEMENT.
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
 
-See the Apache Version 2.0 License for specific language governing permissions
-and limitations under the License.
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 /* global Reflect, Promise */
 
@@ -200,7 +200,6 @@ var ShapeBase = /** @class */ (function (_super) {
     function ShapeBase() {
         var _this = _super.call(this) || this;
         _this.__fieldDirty = true;
-        _this.fillColor = '0xffffff';
         _this.fillAlpha = 1;
         _this.strokeColor = 0;
         _this.strokeAlpha = 1;
@@ -209,18 +208,21 @@ var ShapeBase = /** @class */ (function (_super) {
         _this.shapeWidth = 0;
         _this.shapeHeight = 0;
         _this.directionLineWidth = 0;
-        _this._anchor = new PIXI__default['default'].ObservablePoint(_this._onAnchorUpdate, _this);
         _this.nextTick = function () {
             if (_this.__fieldDirty) {
                 _this.__fieldDirty = false;
                 var _a = _this, fillColor = _a.fillColor, fillAlpha = _a.fillAlpha, strokeColor = _a.strokeColor, strokeWidth = _a.strokeWidth, strokeAlpha = _a.strokeAlpha, strokeAlignment = _a.strokeAlignment;
                 _this.clear();
-                _this.beginFill(fillColor, fillAlpha);
+                if (fillColor !== undefined) {
+                    _this.beginFill(fillColor, fillAlpha);
+                }
                 if (strokeWidth > 0) {
                     _this.lineStyle(strokeWidth, strokeColor, strokeAlpha, strokeAlignment);
                 }
                 _this.redraw();
-                _this.endFill();
+                if (fillColor !== undefined) {
+                    _this.endFill();
+                }
                 if (_this.directionLineWidth > 0) {
                     _this.drawDirectionLine();
                 }
@@ -236,7 +238,7 @@ var ShapeBase = /** @class */ (function (_super) {
         set: function (value) {
             this._anchor.copyFrom(value);
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(ShapeBase.prototype, "anchorOffset", {
@@ -247,18 +249,14 @@ var ShapeBase = /** @class */ (function (_super) {
                 y: -shapeHeight * ay,
             };
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     ShapeBase.prototype._onAnchorUpdate = function () {
         this.$onModify();
     };
     ShapeBase.prototype.$onModify = function (value, key) {
-        /*if (this._t) {
-            clearTimeout(this._t);
-            this._t = null;
-        }
-        this._t = setTimeout(this.nextTick);*/
+        this.__fieldDirty = true;
         this.nextTick && this.nextTick();
     };
     ShapeBase.prototype.drawDirectionLine = function () {
@@ -268,31 +266,31 @@ var ShapeBase = /** @class */ (function (_super) {
         this.lineTo(x + this.shapeWidth / 2, y);
     };
     __decorate([
-        qunity.watch
+        qunity.watchable
     ], ShapeBase.prototype, "fillColor", void 0);
     __decorate([
-        qunity.watch
+        qunity.watchable
     ], ShapeBase.prototype, "fillAlpha", void 0);
     __decorate([
-        qunity.watch
+        qunity.watchable
     ], ShapeBase.prototype, "strokeColor", void 0);
     __decorate([
-        qunity.watch
+        qunity.watchable
     ], ShapeBase.prototype, "strokeAlpha", void 0);
     __decorate([
-        qunity.watch
+        qunity.watchable
     ], ShapeBase.prototype, "strokeWidth", void 0);
     __decorate([
-        qunity.watch
+        qunity.watchable
     ], ShapeBase.prototype, "strokeAlignment", void 0);
     __decorate([
-        qunity.watch
+        qunity.watchable
     ], ShapeBase.prototype, "shapeWidth", void 0);
     __decorate([
-        qunity.watch
+        qunity.watchable
     ], ShapeBase.prototype, "shapeHeight", void 0);
     __decorate([
-        qunity.watch
+        qunity.watchable
     ], ShapeBase.prototype, "directionLineWidth", void 0);
     return ShapeBase;
 }(PIXI__default['default'].Graphics));
@@ -316,7 +314,7 @@ var Rect = /** @class */ (function (_super) {
         }
     };
     __decorate([
-        qunity.watch
+        qunity.watchable
     ], Rect.prototype, "borderRadius", void 0);
     return Rect;
 }(ShapeBase));
@@ -360,13 +358,13 @@ var Star = /** @class */ (function (_super) {
         this.drawStar.apply(this, args);
     };
     __decorate([
-        qunity.watch
+        qunity.watchable
     ], Star.prototype, "points", void 0);
     __decorate([
-        qunity.watch
+        qunity.watchable
     ], Star.prototype, "innerRadius", void 0);
     __decorate([
-        qunity.watch
+        qunity.watchable
     ], Star.prototype, "starRotation", void 0);
     return Star;
 }(ShapeBase));
@@ -382,7 +380,7 @@ var StarBezier = /** @class */ (function (_super) {
         return _this;
     }
     StarBezier.prototype.redraw = function () {
-        var _a = this, shapeWidth = _a.shapeWidth, shapeHeight = _a.shapeHeight, _b = _a.anchorOffset, x = _b.x, y = _b.y;
+        var _a = this, shapeWidth = _a.shapeWidth, shapeHeight = _a.shapeHeight, _b = _a.anchorOffset; _b.x; _b.y;
         var radius = Math.min(shapeWidth, shapeHeight) / 2;
         var _c = this, points = _c.points, innerRadius = _c.innerRadius, starRotation = _c.starRotation;
         if (innerRadius === undefined) {
@@ -406,13 +404,13 @@ var StarBezier = /** @class */ (function (_super) {
         this.closePath();
     };
     __decorate([
-        qunity.watch
+        qunity.watchable
     ], StarBezier.prototype, "points", void 0);
     __decorate([
-        qunity.watch
+        qunity.watchable
     ], StarBezier.prototype, "innerRadius", void 0);
     __decorate([
-        qunity.watch
+        qunity.watchable
     ], StarBezier.prototype, "starRotation", void 0);
     return StarBezier;
 }(ShapeBase));
@@ -451,6 +449,7 @@ var PIXI_TextStyle = {
     wordWrap: ['boolean', ''],
     wordWrapWidth: ['number', ''],
 };
+exports.PIXI_BLEND_MODES = void 0;
 (function (PIXI_BLEND_MODES) {
     PIXI_BLEND_MODES[PIXI_BLEND_MODES["NORMAL"] = 0] = "NORMAL";
     PIXI_BLEND_MODES[PIXI_BLEND_MODES["ADD"] = 1] = "ADD";
@@ -588,6 +587,7 @@ if (!PIXI__default['default'].utils.isWebGLSupported()) {
 }
 PIXI__default['default'].utils.sayHello(type);
 var app;
+exports.Resolution = void 0;
 (function (Resolution) {
     Resolution[Resolution["WIDTH_FIXED"] = 0] = "WIDTH_FIXED";
     Resolution[Resolution["HEIGHT_FIXED"] = 1] = "HEIGHT_FIXED";
@@ -624,10 +624,14 @@ function createApp(options) {
         traverseFunc: traverse,
         bubblingFunc: bubbling,
         loadAssetFunc: loadAsset,
+        stageSizeFunc: function () {
+            var _a = pixiApp.screen, width = _a.width, height = _a.height;
+            return { width: width, height: height };
+        },
         protocols: protocols,
         context: {
             pixiApp: pixiApp,
-        },
+        }
     });
     PIXI__default['default'].Ticker.shared.add(function (delta) {
         mainLoop(delta * 1000 / 60);
@@ -646,7 +650,7 @@ var Component = /** @class */ (function (_super) {
         get: function () {
             return this.entityAdaptor ? this.entityAdaptor.entity : null;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return Component;

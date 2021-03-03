@@ -3,8 +3,7 @@
  */
 
 import {EntityAdaptorBase} from 'qunity'
-import {DisplayObject, interaction} from 'pixi.js'
-import InteractionEvent = interaction.InteractionEvent;
+import {DisplayObject, InteractionEvent} from 'pixi.js'
 
 const interactionEvents = {
 	pointertap: 'click',

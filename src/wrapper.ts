@@ -71,10 +71,14 @@ export function createApp(options?: PIXIAppOptions): Application {
 		traverseFunc: traverse,
 		bubblingFunc: bubbling,
 		loadAssetFunc: loadAsset,
+		stageSizeFunc(): { width: number; height: number } {
+			const {width, height} = pixiApp.screen
+			return {width, height};
+		},
 		protocols,
 		context: {
 			pixiApp,
-		},
+		}
 	});
 	PIXI.Ticker.shared.add(function (delta) {
 		mainLoop(delta * 1000 / 60);

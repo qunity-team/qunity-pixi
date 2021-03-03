@@ -2,7 +2,7 @@
  * Created by rockyl on 2020-03-16.
  */
 
-import {watch} from "qunity";
+import {watchable} from "qunity";
 import PIXI from 'pixi.js'
 
 /**
@@ -13,32 +13,23 @@ export abstract class ShapeBase extends PIXI.Graphics {
 
 	private _t;
 
-	@watch
-	fillColor: any = '0xffffff';
-	@watch
-	fillAlpha: number = 1;
-	@watch
-	strokeColor: any = 0;
-	@watch
-	strokeAlpha: number = 1;
-	@watch
-	strokeWidth: number = 0;
-	@watch
-	strokeAlignment: number = 0.5;
-	@watch
-	shapeWidth: number = 0;
-	@watch
-	shapeHeight: number = 0;
-	@watch
-	directionLineWidth: number = 0;
+	@watchable fillColor: any;
+	@watchable fillAlpha: number = 1;
+	@watchable strokeColor: any = 0;
+	@watchable strokeAlpha: number = 1;
+	@watchable strokeWidth: number = 0;
+	@watchable strokeAlignment: number = 0.5;
+	@watchable shapeWidth: number = 0;
+	@watchable shapeHeight: number = 0;
+	@watchable directionLineWidth: number = 0;
 
-	protected _anchor: PIXI.ObservablePoint = new PIXI.ObservablePoint(this._onAnchorUpdate, this);
+	protected _anchor: PIXI.ObservablePoint;
 
 	get anchor(): PIXI.ObservablePoint {
 		return this._anchor;
 	}
 
-	set anchor(value) // eslint-disable-line require-jsdoc
+	set anchor(value)
 	{
 		this._anchor.copyFrom(value);
 	}
@@ -63,11 +54,7 @@ export abstract class ShapeBase extends PIXI.Graphics {
 	}
 
 	private $onModify(value?, key?) {
-		/*if (this._t) {
-			clearTimeout(this._t);
-			this._t = null;
-		}
-		this._t = setTimeout(this.nextTick);*/
+		this.__fieldDirty = true;
 		this.nextTick && this.nextTick();
 	}
 
@@ -81,12 +68,16 @@ export abstract class ShapeBase extends PIXI.Graphics {
 			} = this;
 
 			this.clear();
-			this.beginFill(fillColor, fillAlpha);
+			if(fillColor !== undefined){
+				this.beginFill(fillColor, fillAlpha);
+			}
 			if (strokeWidth > 0) {
 				this.lineStyle(strokeWidth, strokeColor, strokeAlpha, strokeAlignment);
 			}
 			this.redraw();
-			this.endFill();
+			if(fillColor !== undefined){
+				this.endFill();
+			}
 			if (this.directionLineWidth > 0) {
 				this.drawDirectionLine();
 			}
@@ -107,8 +98,7 @@ export abstract class ShapeBase extends PIXI.Graphics {
  * 矩形
  */
 export class Rect extends ShapeBase {
-	@watch
-	borderRadius: number = 0;
+	@watchable borderRadius: number = 0;
 
 	protected redraw() {
 		const {shapeWidth, shapeHeight, borderRadius, anchorOffset: {x, y}} = this;
@@ -138,12 +128,9 @@ export class Circle extends ShapeBase {
  * 星型
  */
 export class Star extends ShapeBase {
-	@watch
-	points: number = 5;
-	@watch
-	innerRadius: number;
-	@watch
-	starRotation: number = 0;
+	@watchable points: number = 5;
+	@watchable innerRadius: number;
+	@watchable starRotation: number = 0;
 
 	protected redraw() {
 
@@ -166,12 +153,9 @@ export class Star extends ShapeBase {
  * 曲线星型
  */
 export class StarBezier extends ShapeBase {
-	@watch
-	points: number = 5;
-	@watch
-	innerRadius: number;
-	@watch
-	starRotation: number = 0;
+	@watchable points: number = 5;
+	@watchable innerRadius: number;
+	@watchable starRotation: number = 0;
 
 	protected redraw() {
 
