@@ -5,3 +5,5 @@
 export * from './wrapper'
 export * from './utils'
 export * from './entity-props'
+
+export * from './doc-declares'

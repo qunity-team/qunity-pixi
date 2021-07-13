@@ -1,7 +1,5 @@
-import pixi from 'pixi.js'
+import {Container} from 'pixi.js'
+import {IEntity} from 'qunity'
 
-export declare function Node(
-	props?: { [key: keyof pixi.Container]: any }
-)
-
-Node({x: 100})
+interface INode extends Container, IEntity{}
+export declare function Node<K extends keyof INode>(props: Record<K, any>)
