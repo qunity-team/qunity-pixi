@@ -3,51 +3,51 @@
  */
 
 import PIXI from 'pixi.js'
-import {decodeJson5} from "qunity";
+import {decodeJson5} from "qunity"
 
 class ResTransform {
 	static pre(resource: PIXI.LoaderResource, next: (...params: any[]) => any) {
 
-		next();
+		next()
 	}
 
 	static use(resource: PIXI.LoaderResource, next: (...args: any[]) => void) {
 		switch (resource.extension) {
 			case 'scene':
 			case 'prefab':
-				//resource.data = decodeJson5(resource.data);
-				//let parser = new DOMParser();
-				//resource.data = parser.parseFromString(resource.data, 'text/xml');
-				break;
+				//resource.data = decodeJson5(resource.data)
+				//let parser = new DOMParser()
+				//resource.data = parser.parseFromString(resource.data, 'text/xml')
+				break
 		}
 
-		next();
+		next()
 	}
 }
 
-PIXI.Loader.registerPlugin(ResTransform);
+PIXI.Loader.registerPlugin(ResTransform)
 
-const loaderCache = [];
+const loaderCache = []
 
 export function loadAsset(config: any, onComplete: (res, opt) => void): void {
-	let loader;
+	let loader
 	if (loaderCache.length > 0) {
-		loader = loaderCache.pop();
+		loader = loaderCache.pop()
 	} else {
-		loader = new PIXI.Loader;
+		loader = new PIXI.Loader
 	}
 
-	loader.add(config);
+	loader.add(config)
 
-	loader.load(onLoaded);
+	loader.load(onLoaded)
 
 	function onLoaded(loader, resources) {
-		let resource = resources[Object.keys(resources)[0]];
-		let data = resource.textures || resource.texture || resource.data;
+		let resource = resources[Object.keys(resources)[0]]
+		let data = resource.textures || resource.texture || resource.data
 		setTimeout(function () {
-			onComplete && onComplete(data, config);
-		});
-		loader.reset();
-		loaderCache.push(loader);
+			onComplete && onComplete(data, config)
+		})
+		loader.reset()
+		loaderCache.push(loader)
 	}
 }

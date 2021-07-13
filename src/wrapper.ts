@@ -3,21 +3,21 @@
  */
 
 import PIXI from 'pixi.js'
-import {bubbling, traverse} from "./utils";
+import {bubbling, traverse} from "./utils"
 import {Application, IEntity, Component as QComponent, injectProp} from 'qunity'
-import {EntityAdaptor} from "./EntityAdaptor";
-import {loadAsset} from "./res";
-import {protocols} from "./protocols";
-import {entityProps} from "./entity-props";
+import {EntityAdaptor} from "./EntityAdaptor"
+import {loadAsset} from "./res"
+import {protocols} from "./protocols"
+import {entityProps} from "./entity-props"
 
-let type = "WebGL";
+let type = "WebGL"
 if (!PIXI.utils.isWebGLSupported()) {
-	type = "canvas";
+	type = "canvas"
 }
 
-PIXI.utils.sayHello(type);
+PIXI.utils.sayHello(type)
 
-let app: Application;
+let app: Application
 
 export enum Resolution {
 	WIDTH_FIXED,
@@ -38,93 +38,93 @@ const defaultOptions: PIXIAppOptions = {
 	designHeight: 1334,
 	antialias: true,
 	autoResize: true,
-};
+}
 
 export function createApp(options?: PIXIAppOptions): Application {
-	let _options: PIXIAppOptions = {};
+	let _options: PIXIAppOptions = {}
 
-	injectProp(_options, defaultOptions);
-	injectProp(_options, options);
+	injectProp(_options, defaultOptions)
+	injectProp(_options, options)
 
-	app = new Application();
-	app.registerEntityDefs(entityProps);
+	app = new Application()
+	app.registerEntityDefs(entityProps)
 
 	let pixiApp = new PIXI.Application({
 		antialias: _options.antialias,
-	});
-	let view = pixiApp.renderer.view;
-	view.style.position = "absolute";
-	view.style.display = "block";
-	view.style.width = '100%';
-	view.style.height = '100%';
+	})
+	let view = pixiApp.renderer.view
+	view.style.position = "absolute"
+	view.style.display = "block"
+	view.style.width = '100%'
+	view.style.height = '100%'
 
-	adjustSize(pixiApp, _options);
+	adjustSize(pixiApp, _options)
 
-	document.body.appendChild(pixiApp.view);
+	document.body.appendChild(pixiApp.view)
 
 	let mainLoop = app.setupAdaptor({
 		stage: pixiApp.stage,
 		EntityAdaptor,
 		addDisplayFunc: function (node: PixiEntity, parent: PixiEntity) {
-			parent['addChild'](node);
+			parent['addChild'](node)
 		},
 		traverseFunc: traverse,
 		bubblingFunc: bubbling,
 		loadAssetFunc: loadAsset,
 		stageSizeFunc(): { width: number; height: number } {
 			const {width, height} = pixiApp.screen
-			return {width, height};
+			return {width, height}
 		},
 		protocols,
 		context: {
 			pixiApp,
 		}
-	});
+	})
 	PIXI.Ticker.shared.add(function (delta) {
-		mainLoop(delta * 1000 / 60);
-	});
+		mainLoop(delta * 1000 / 60)
+	})
 
-	return app;
+	return app
 }
 
 // @ts-ignore
 export interface PixiEntity extends PIXI.Container, PIXI.Sprite, PIXI.Text, PIXI.Graphics, IEntity {
-	readonly stageSize: { width: number, height: number };
+	readonly stageSize: { width: number, height: number }
 }
 
 export function createEntity(type: string): PixiEntity {
-	return <PixiEntity>app.createEntity(type);
+	return <PixiEntity>app.createEntity(type)
 }
 
 export class Component extends QComponent {
 	get entity(): PixiEntity {
-		return this.entityAdaptor ? <PixiEntity>this.entityAdaptor.entity : null;
+		return this.entityAdaptor ? <PixiEntity>this.entityAdaptor.entity : null
 	}
 }
 
 function adjustSize(pixiApp, options: PIXIAppOptions) {
 	if (options.autoResize) {
-		window.onresize = resize;
+		window.onresize = resize
 	}
 
-	resize();
+	resize()
 
 	function resize() {
-		const {designWidth, designHeight} = options;
-		let width = designWidth;
-		let height = designHeight;
-		let scale;
+		const {designWidth, designHeight} = options
+		let width = designWidth
+		let height = designHeight
+		let scale
 		switch (options.resolution) {
 			case Resolution.WIDTH_FIXED:
-				scale = window.innerWidth / width;
-				height = window.innerHeight / scale;
-				break;
+				scale = window.innerWidth / width
+				height = window.innerHeight / scale
+				break
 			case Resolution.HEIGHT_FIXED:
-				scale = window.innerHeight / height;
-				width = window.innerWidth / scale;
-				break;
+				scale = window.innerHeight / height
+				width = window.innerWidth / scale
+				break
 		}
 
-		pixiApp.renderer.resize(width, height);
+		pixiApp.renderer.resize(width, height)
 	}
 }

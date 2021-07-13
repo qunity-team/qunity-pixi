@@ -176,7 +176,7 @@ function texture(app, key, value) {
     var uuid = value.replace(Protocols.TEXTURE, '');
     trulyValue = app.getAsset(uuid);
     /*if (trulyValue) {
-        trulyValue = trulyValue.texture;
+        trulyValue = trulyValue.texture
     }*/
     return trulyValue;
 }

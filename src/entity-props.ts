@@ -4,8 +4,8 @@
  * 实体属性列表
  */
 
-import PIXI from "pixi.js";
-import {Circle, Rect, ShapeBase, Star, StarBezier} from "./shapes";
+import PIXI from "pixi.js"
+import {Circle, Rect, ShapeBase, Star, StarBezier} from "./shapes"
 
 export const PIXI_TextStyle = {
 	align: ['string', ''],
@@ -35,7 +35,7 @@ export const PIXI_TextStyle = {
 	whiteSpace: ['string', ''],
 	wordWrap: ['boolean', ''],
 	wordWrapWidth: ['number', ''],
-};
+}
 
 export enum PIXI_BLEND_MODES {
 	NORMAL = 0,
@@ -167,4 +167,4 @@ export const entityProps = {
 			starRotation: ['number', 0],
 		},
 	},
-};
+}

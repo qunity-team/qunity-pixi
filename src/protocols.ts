@@ -11,15 +11,15 @@ export enum Protocols {
 
 export const protocols = {
 	[Protocols.TEXTURE]: texture,
-};
+}
 
 function texture(app: Application, key: string, value: any): any {
-	let trulyValue;
-	const uuid = value.replace(Protocols.TEXTURE, '');
-	trulyValue = app.getAsset(uuid);
+	let trulyValue
+	const uuid = value.replace(Protocols.TEXTURE, '')
+	trulyValue = app.getAsset(uuid)
 	/*if (trulyValue) {
-		trulyValue = trulyValue.texture;
+		trulyValue = trulyValue.texture
 	}*/
 
-	return trulyValue;
+	return trulyValue
 }

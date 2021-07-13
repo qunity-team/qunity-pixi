@@ -10,18 +10,18 @@ import PIXI from 'pixi.js'
  * @param hit
  */
 export function traverse(node, hit: (node: PIXI.DisplayObject) => boolean | void) {
-	let interrupt = hit(node);
+	let interrupt = hit(node)
 
 	if (!interrupt && node.children && node.children.length > 0) {
 		for (let child of node.children) {
-			let interrupt = traverse(child, hit);
+			let interrupt = traverse(child, hit)
 			if (interrupt) {
-				break;
+				break
 			}
 		}
 	}
 
-	return interrupt;
+	return interrupt
 }
 
 /**
@@ -30,12 +30,12 @@ export function traverse(node, hit: (node: PIXI.DisplayObject) => boolean | void
  * @param hit
  */
 export function bubbling(node, hit: (node: PIXI.DisplayObject) => boolean | void) {
-	let interrupt = hit(node);
+	let interrupt = hit(node)
 	while (!interrupt && node.parent) {
-		node = node.parent;
+		node = node.parent
 		if (node) {
-			interrupt = hit(node);
+			interrupt = hit(node)
 		}
 	}
-	return interrupt;
+	return interrupt
 }
