@@ -595,7 +595,7 @@ function createApp(options) {
     var _options = {};
     injectProp(_options, defaultOptions);
     injectProp(_options, options);
-    app = new Application();
+    app = new Application('qunity-pixi');
     app.registerEntityDefs(entityProps);
     var pixiApp = new PIXI.Application({
         antialias: _options.antialias,

@@ -4,7 +4,7 @@
 
 const typescript = require('rollup-plugin-typescript');
 const resolve = require('rollup-plugin-node-resolve');
-const {uglify} = require('rollup-plugin-uglify');
+const {terser} = require('rollup-plugin-terser');
 
 const name = 'qunity-pixi';
 
@@ -14,7 +14,7 @@ const options = {
 	input: 'src/index.ts',
 	output: [
 		{
-			file: prod ? 'dist/index.umd.cjs.js' : 'dist/index.cjs.js',
+			file: prod ? 'dist/index.cjs.min.js' : 'dist/index.cjs.js',
 			sourcemap: true,
 			format: 'cjs',
 			globals: {
@@ -23,7 +23,7 @@ const options = {
 			},
 		},
 		{
-			file: prod ? 'dist/index.umd.esm.js' : 'dist/index.esm.js',
+			file: prod ? 'dist/index.esm.min.js' : 'dist/index.esm.js',
 			sourcemap: true,
 			format: 'esm',
 			globals: {
@@ -49,13 +49,9 @@ const options = {
 		typescript({
 			typescript: require('typescript'),
 		}),
-		//uglify({}),
+		prod && terser(),
 	],
-	external: ['pixi.js', 'qunity', ]
+	external: ['pixi.js', 'qunity', ],
 };
-
-if (prod) {
-	options.plugins.push(uglify({}));
-}
 
 export default options;

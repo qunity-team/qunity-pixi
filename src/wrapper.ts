@@ -46,7 +46,7 @@ export function createApp(options?: PIXIAppOptions): Application {
 	injectProp(_options, defaultOptions)
 	injectProp(_options, options)
 
-	app = new Application()
+	app = new Application('qunity-pixi')
 	app.registerEntityDefs(entityProps)
 
 	let pixiApp = new PIXI.Application({

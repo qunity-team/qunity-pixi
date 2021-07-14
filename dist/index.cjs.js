@@ -603,7 +603,7 @@ function createApp(options) {
     var _options = {};
     qunity.injectProp(_options, defaultOptions);
     qunity.injectProp(_options, options);
-    app = new qunity.Application();
+    app = new qunity.Application('qunity-pixi');
     app.registerEntityDefs(entityProps);
     var pixiApp = new PIXI__default['default'].Application({
         antialias: _options.antialias,

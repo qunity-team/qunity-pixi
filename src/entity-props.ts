@@ -4,7 +4,7 @@
  * 实体属性列表
  */
 
-import PIXI from "pixi.js"
+import {Container, Sprite, Text, Graphics} from "pixi.js"
 import {Circle, Rect, ShapeBase, Star, StarBezier} from "./shapes"
 
 export const PIXI_TextStyle = {
@@ -75,7 +75,7 @@ export enum PIXI_BLEND_MODES {
 
 export const entityProps = {
 	Node: {
-		def: PIXI.Container,
+		def: Container,
 		isContainer: true,
 		props: {
 			position: ['vector2', [0, 0]],
@@ -95,7 +95,7 @@ export const entityProps = {
 	},
 	Sprite: {
 		base: 'Node',
-		def: PIXI.Sprite,
+		def: Sprite,
 		isContainer: true,
 		props: {
 			blendMode: ['enum', 'NORMAL', PIXI_BLEND_MODES],
@@ -105,7 +105,7 @@ export const entityProps = {
 	},
 	Text: {
 		base: 'Sprite',
-		def: PIXI.Text,
+		def: Text,
 		isContainer: true,
 		props: {
 			text: ['string'],
@@ -114,7 +114,7 @@ export const entityProps = {
 	},
 	Graphics: {
 		base: 'Node',
-		def: PIXI.Graphics,
+		def: Graphics,
 		isContainer: true,
 		props: {
 			tint: ['color', 0xFFFFFF],
