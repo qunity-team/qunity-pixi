@@ -6,7 +6,7 @@ const typescript = require('rollup-plugin-typescript');
 const resolve = require('rollup-plugin-node-resolve');
 const {terser} = require('rollup-plugin-terser');
 
-const name = 'qunity-pixi';
+const name = 'qunity_pixi';
 
 const prod = process.env.BUILD === 'production';
 
@@ -14,17 +14,8 @@ const options = {
 	input: 'src/index.ts',
 	output: [
 		{
-			file: prod ? 'dist/index.cjs.min.js' : 'dist/index.cjs.js',
-			sourcemap: true,
-			format: 'cjs',
-			globals: {
-				'pixi.js': 'PIXI',
-				'qunity': 'qunity',
-			},
-		},
-		{
-			file: prod ? 'dist/index.esm.min.js' : 'dist/index.esm.js',
-			sourcemap: true,
+			file: prod ? `dist/${name}.esm.min.js` : `dist/${name}.esm.js`,
+			sourcemap: !prod,
 			format: 'esm',
 			globals: {
 				'pixi.js': 'PIXI',
@@ -32,7 +23,7 @@ const options = {
 			},
 		},
 		{
-			file: prod ? 'dist/index.umd.min.js' : 'dist/index.umd.js',
+			file: prod ? `dist/${name}.umd.min.js` : `dist/${name}.umd.js`,
 			sourcemap: !prod,
 			format: 'umd',
 			name,
@@ -41,17 +32,26 @@ const options = {
 				'qunity': 'qunity',
 			},
 		},
+		{
+			file: prod ? `dist/${name}.all.min.js` : `dist/${name}.all.js`,
+			sourcemap: !prod,
+			format: 'umd',
+			name,
+			globals: {
+				'pixi.js': 'PIXI',
+			},
+		},
 	],
 	plugins: [
 		resolve({
-			browser: true,
+			//browser: true,
 		}),
 		typescript({
 			typescript: require('typescript'),
 		}),
 		prod && terser(),
 	],
-	external: ['pixi.js', 'qunity', ],
+	external: ['pixi.js', ],
 };
 
 export default options;
